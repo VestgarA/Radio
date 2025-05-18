@@ -95,18 +95,6 @@ public class RadioTest {
     }
 
     @Test
-    public void radioStaishenIncriseMin() {
-        Radio radio = new Radio();
-
-        radio.setRadioChanel(-1);
-
-        int expected = 0;
-        int actual = radio.getRadioChanel();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
     public void settingStationAboveMaximum() {
         Radio radio = new Radio();
 
@@ -144,4 +132,41 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void previousChannel() {
+        Radio radio = new Radio();
+
+        radio.setRadioChanel(4);
+        radio.switchingPreviousStation();
+
+        int expected = 3;
+        int actual = radio.getRadioChanel();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void previousChannelMin() {
+        Radio radio = new Radio();
+
+        radio.setRadioChanel(-1);
+
+        int expected = 9;
+        int actual = radio.getRadioChanel();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void minimumRadioChanel(){
+        Radio radio = new Radio();
+
+        radio.setRadioChanel(0);
+        radio.switchingPreviousStation();
+
+        int expected = 0;
+        int actual = radio.getRadioChanel();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }

@@ -25,6 +25,7 @@ public class Radio {
     public void setRadioChanel(int newRadioChanel) {
 
         if (newRadioChanel < 0) {
+            radioChanel = 9;
             return;
         }
         if (newRadioChanel > 9) {
@@ -47,6 +48,12 @@ public class Radio {
 
         if (radioChanel < 9) {
             radioChanel++;
+        }
+    }
+
+    public void switchingPreviousStation() {
+        if (radioChanel > 0) {
+            radioChanel --;
         }
     }
 }
