@@ -37,16 +37,12 @@ public class Radio {
 
         if (radioVolume != 100) {
             radioVolume++;
-        } else {
-            radioVolume = 100;
         }
     }
 
     public void decreaseVolume() {
         if (radioVolume != 0) {
             radioVolume--;
-        } else {
-            radioVolume = 0;
         }
     }
 
