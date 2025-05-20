@@ -25,19 +25,28 @@ public class Radio {
     public void setRadioChanel(int newRadioChanel) {
 
         if (newRadioChanel < 0) {
-            // radioChanel = 9;
             return;
         }
         if (newRadioChanel > 9) {
-            // radioChanel = 0;
             return;
         }
         radioChanel = newRadioChanel;
     }
 
     public void increaseVolume() {
-        if (radioVolume < 100) {
+
+        if (radioVolume != 100) {
             radioVolume++;
+        } else {
+            radioVolume = 0;
+        }
+    }
+
+    public void decreaseVolume() {
+        if (radioVolume != 0) {
+            radioVolume--;
+        } else {
+            radioVolume = 100;
         }
     }
 
@@ -46,9 +55,10 @@ public class Radio {
     }
 
     public void next() {
-
-        if (radioChanel < 9) {
+        if (radioChanel != 9) {
             radioChanel++;
+        } else {
+            radioChanel = 0;
         }
     }
 
