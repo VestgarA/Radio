@@ -38,7 +38,7 @@ public class Radio {
         if (radioVolume != 100) {
             radioVolume++;
         } else {
-            radioVolume = 0;
+            radioVolume = 100;
         }
     }
 
@@ -46,7 +46,7 @@ public class Radio {
         if (radioVolume != 0) {
             radioVolume--;
         } else {
-            radioVolume = 100;
+            radioVolume = 0;
         }
     }
 

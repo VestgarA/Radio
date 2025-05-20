@@ -9,7 +9,7 @@ public class RadioTest {
     Radio radio = new Radio();
 
     @Test
-    public void minVolume(){
+    public void minVolume() {
 
         radio.setRadioVolume(0);
 
@@ -17,7 +17,7 @@ public class RadioTest {
     }
 
     @Test
-    public void decreaseMinVolume(){
+    public void decreaseMinVolume() {
 
         radio.setRadioVolume(-1);
 
@@ -25,7 +25,7 @@ public class RadioTest {
     }
 
     @Test
-    public void increaseMaxVolume(){
+    public void increaseMaxVolume() {
 
         radio.setRadioVolume(101);
 
@@ -33,7 +33,7 @@ public class RadioTest {
     }
 
     @Test
-    public void maxVolume(){
+    public void maxVolume() {
 
         radio.setRadioVolume(100);
         radio.maxVolume();
@@ -42,7 +42,7 @@ public class RadioTest {
     }
 
     @Test
-    public void increaseVolume(){
+    public void increaseVolume() {
 
         radio.setRadioVolume(50);
         radio.increaseVolume();
@@ -51,15 +51,16 @@ public class RadioTest {
     }
 
     @Test
-    public void decreaseVolume(){
+    public void decreaseVolume() {
 
         radio.setRadioVolume(50);
         radio.decreaseVolume();
 
         Assertions.assertEquals(49, radio.getRadioVolume());
     }
+
     @Test
-    public void boundaryValuesVolumeMax(){
+    public void boundaryValuesVolumeMax() {
 
         radio.setRadioVolume(98);
         radio.increaseVolume();
@@ -68,7 +69,7 @@ public class RadioTest {
     }
 
     @Test
-    public void boundaryValuesVolumeMax2(){
+    public void boundaryValuesVolumeMax2() {
 
         radio.setRadioVolume(99);
         radio.increaseVolume();
@@ -77,7 +78,7 @@ public class RadioTest {
     }
 
     @Test
-    public void boundaryValuesVolumeMin(){
+    public void boundaryValuesVolumeMin() {
 
         radio.setRadioVolume(0);
         radio.increaseVolume();
@@ -86,7 +87,7 @@ public class RadioTest {
     }
 
     @Test
-    public void boundaryValuesVolumeMin2(){
+    public void boundaryValuesVolumeMin2() {
 
         radio.setRadioVolume(1);
         radio.increaseVolume();
@@ -95,25 +96,25 @@ public class RadioTest {
     }
 
     @Test
-    public void boundaryValuesMaxVolume(){
+    public void boundaryValuesMaxVolume() {
 
         radio.setRadioVolume(100);
         radio.increaseVolume();
-
-        Assertions.assertEquals(0, radio.getRadioVolume());
-    }
-
-    @Test
-    public void boundaryValuesDecreaseVolume(){
-
-        radio.setRadioVolume(0);
-        radio.decreaseVolume();
 
         Assertions.assertEquals(100, radio.getRadioVolume());
     }
 
     @Test
-    public void minChanel(){
+    public void boundaryValuesDecreaseVolume() {
+
+        radio.setRadioVolume(0);
+        radio.decreaseVolume();
+
+        Assertions.assertEquals(0, radio.getRadioVolume());
+    }
+
+    @Test
+    public void minChanel() {
 
         radio.setRadioChanel(0);
 
@@ -121,7 +122,7 @@ public class RadioTest {
     }
 
     @Test
-    public void decreaseMinChanel(){
+    public void decreaseMinChanel() {
 
         radio.setRadioChanel(-1);
 
@@ -129,7 +130,7 @@ public class RadioTest {
     }
 
     @Test
-    public void maxChanel(){
+    public void maxChanel() {
 
         radio.setRadioChanel(9);
 
@@ -137,7 +138,7 @@ public class RadioTest {
     }
 
     @Test
-    public void increaseMaxChanel(){
+    public void increaseMaxChanel() {
 
         radio.setRadioChanel(10);
 
@@ -145,7 +146,7 @@ public class RadioTest {
     }
 
     @Test
-    public void choiceRadioChanel(){
+    public void choiceRadioChanel() {
 
         radio.setRadioChanel(5);
 
@@ -153,7 +154,7 @@ public class RadioTest {
     }
 
     @Test
-    public void nextRadioChanel(){
+    public void nextRadioChanel() {
 
         radio.setRadioChanel(5);
         radio.next();
@@ -162,7 +163,7 @@ public class RadioTest {
     }
 
     @Test
-    public void increaseMaxRadioChanel(){
+    public void increaseMaxRadioChanel() {
 
         radio.setRadioChanel(9);
         radio.next();
@@ -171,7 +172,7 @@ public class RadioTest {
     }
 
     @Test
-    public void prevRadioChanel(){
+    public void prevRadioChanel() {
 
         radio.setRadioChanel(5);
         radio.prev();
@@ -180,7 +181,7 @@ public class RadioTest {
     }
 
     @Test
-    public void prevRadioChanelMin(){
+    public void prevRadioChanelMin() {
 
         radio.setRadioChanel(0);
         radio.prev();
