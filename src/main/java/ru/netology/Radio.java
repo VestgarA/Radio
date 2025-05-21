@@ -3,13 +3,13 @@ package ru.netology;
 public class Radio {
     private int radioVolume;
     private int radioChanel = 10;
-    private int maxRadioChanel;
+    private int settingNumberRadioStations;
 
-    public Radio(int maxRadioChanel){
-        this.maxRadioChanel = maxRadioChanel - 1;
+    public Radio(int settingNumberRadioStations) {
+        this.settingNumberRadioStations = settingNumberRadioStations - 1;
     }
 
-    public Radio(){
+    public Radio() {
 
     }
 
@@ -21,8 +21,8 @@ public class Radio {
         return radioChanel;
     }
 
-    public int getMaxRadioChanel(){
-        return maxRadioChanel;
+    public int getMaxRadioChanel() {
+        return settingNumberRadioStations;
     }
 
     public void setRadioVolume(int newRadioVolume) {
@@ -40,7 +40,7 @@ public class Radio {
         if (newRadioChanel < 0) {
             return;
         }
-        if (newRadioChanel > maxRadioChanel) {
+        if (newRadioChanel > settingNumberRadioStations) {
             return;
         }
         radioChanel = newRadioChanel;
@@ -64,7 +64,7 @@ public class Radio {
     }
 
     public void next() {
-        if (radioChanel != maxRadioChanel) {
+        if (radioChanel != settingNumberRadioStations) {
             radioChanel++;
         } else {
             radioChanel = 0;
@@ -75,7 +75,7 @@ public class Radio {
         if (radioChanel != 0) {
             radioChanel--;
         } else {
-            radioChanel = maxRadioChanel;
+            radioChanel = settingNumberRadioStations;
         }
     }
 }
