@@ -1,6 +1,5 @@
 package ru.netology;
 
-import com.sun.nio.sctp.Association;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -123,30 +122,35 @@ public class RadioTest {
 
     @Test
     public void decreaseMinChanel() {
+        Radio radio = new Radio(30);
 
         radio.setRadioChanel(-1);
 
-        Assertions.assertEquals(0, radio.getRadioChanel());
+        Assertions.assertEquals(29, radio.getMaxRadioChanel());
     }
 
     @Test
     public void maxChanel() {
+        Radio radio = new Radio(30);
 
-        radio.setRadioChanel(9);
+        radio.setRadioChanel(30);
 
-        Assertions.assertEquals(9, radio.getRadioChanel());
+        Assertions.assertEquals(29, radio.getMaxRadioChanel());
     }
 
     @Test
     public void increaseMaxChanel() {
+        Radio radio = new Radio(20);
 
-        radio.setRadioChanel(10);
+        radio.setRadioChanel(19);
+        radio.next();
 
         Assertions.assertEquals(0, radio.getRadioChanel());
     }
 
     @Test
     public void choiceRadioChanel() {
+        Radio radio = new Radio(30);
 
         radio.setRadioChanel(5);
 
@@ -155,17 +159,19 @@ public class RadioTest {
 
     @Test
     public void nextRadioChanel() {
+        Radio radio = new Radio(30);
 
-        radio.setRadioChanel(5);
+        radio.setRadioChanel(15);
         radio.next();
 
-        Assertions.assertEquals(6, radio.getRadioChanel());
+        Assertions.assertEquals(16, radio.getRadioChanel());
     }
 
     @Test
     public void increaseMaxRadioChanel() {
+        Radio radio = new Radio(30);
 
-        radio.setRadioChanel(9);
+        radio.setRadioChanel(29);
         radio.next();
 
         Assertions.assertEquals(0, radio.getRadioChanel());
@@ -173,19 +179,21 @@ public class RadioTest {
 
     @Test
     public void prevRadioChanel() {
+        Radio radio = new Radio(30);
 
-        radio.setRadioChanel(5);
+        radio.setRadioChanel(20);
         radio.prev();
 
-        Assertions.assertEquals(4, radio.getRadioChanel());
+        Assertions.assertEquals(19, radio.getRadioChanel());
     }
 
     @Test
     public void prevRadioChanelMin() {
+        Radio radio = new Radio(30);
 
         radio.setRadioChanel(0);
         radio.prev();
 
-        Assertions.assertEquals(9, radio.getRadioChanel());
+        Assertions.assertEquals(29, radio.getRadioChanel());
     }
 }
