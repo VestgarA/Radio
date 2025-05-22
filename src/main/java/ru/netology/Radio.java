@@ -2,7 +2,16 @@ package ru.netology;
 
 public class Radio {
     private int radioVolume;
-    private int radioChanel;
+    private int radioChanel = 10;
+    private int maxRadioStations;
+
+    public Radio(int settingNumberRadioStations) {
+        this.maxRadioStations = settingNumberRadioStations - 1;
+    }
+
+    public Radio() {
+
+    }
 
     public int getRadioVolume() {
         return radioVolume;
@@ -10,6 +19,10 @@ public class Radio {
 
     public int getRadioChanel() {
         return radioChanel;
+    }
+
+    public int getMaxRadioChanel() {
+        return maxRadioStations;
     }
 
     public void setRadioVolume(int newRadioVolume) {
@@ -27,7 +40,7 @@ public class Radio {
         if (newRadioChanel < 0) {
             return;
         }
-        if (newRadioChanel > 9) {
+        if (newRadioChanel > maxRadioStations) {
             return;
         }
         radioChanel = newRadioChanel;
@@ -51,7 +64,7 @@ public class Radio {
     }
 
     public void next() {
-        if (radioChanel != 9) {
+        if (radioChanel != maxRadioStations) {
             radioChanel++;
         } else {
             radioChanel = 0;
@@ -59,10 +72,10 @@ public class Radio {
     }
 
     public void prev() {
-        if (radioChanel > 0) {
+        if (radioChanel != 0) {
             radioChanel--;
         } else {
-            radioChanel = 9;
+            radioChanel = maxRadioStations;
         }
     }
 }
